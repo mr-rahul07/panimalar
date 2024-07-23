@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lesson Plan</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            margin-top: 10px;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            transform: scale(1.1);
+        }
+
+        main {
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            animation: zoomIn 0.5s ease-out;
+            border: 1px solid #0077b6;
+        }
+
+        section h2, h3, h4 {
+            color: #0077b6;
+            margin-top: 0;
+            animation: fadeInRight 0.5s ease-out;
+        }
+
+        p, ul, a {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        ul li {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        footer {
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 12px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            section {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            footer {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Lesson Plan</h1>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/panimalar-main%20(1)/panimalar-main/index.html">Home</a></li>
+                <li><a href="class_section.html">Class/Section/Subjects/Timetable</a></li>
+                <li><a href="#">HOD Details</a></li>
+                <li><a href="#">Faculty Details</a></li>
+                <li><a href="students_parents_details.html">Students/Parents Details</a></li>
+                <li><a href="mentor_user.html">Mentor User</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Lesson Plan</h2>
+            <h3>Subject: MFAI</h3>
+            <h4>Week 1</h4>
+            <p>Topic: Truth Table</p>
+            <ul>
+                <li>Tautology</li>
+                <li>Contradaction</li>
+                <li>Solving problem with formula</li>
+            </ul>
+            <h4>Week 2</h4>
+            <p>Topic:WITHOUT TRUTH TABLE </p>
+            <ul>
+                <li>Basic Geometric Shapes</li>
+                <li>Properties </li>
+                <li>Circle Theorems</li>
+            </ul>
+            <!-- Add more weeks as needed -->
+        </section>
+    </main>
+    <main>
+        <section>
+            <h2>Lesson Plan</h2>
+            <h3>Subject:DBMS</h3>
+            <h4>Week 1</h4>
+            <p>Topic: DATA BASE</p>
+            <ul>
+                <li>Sql</li>
+                <li>Structed</li>
+                <li>Unstructed</li>
+            </ul>
+            <h4>Week 2</h4>
+            <p>DATA TYPES </p>
+            <ul>
+                <li>Mysql</li>
+                <li>Table create</li>
+                <li>Insert table</li>
+            </ul>
+            <!-- Add more weeks as needed -->
+        </section>
+    </main>
+    <main>
+        <section>
+            <h2>Lesson Plan</h2>
+            <h3>Subject: OOPS</h3>
+            <h4>Week 1</h4>
+            <p>Topic: JAVA</p>
+            <ul>
+                <li>Introduction of Java</li>
+                <li>what is java?</li>
+                <li>Data types of Java</li>
+            </ul>
+            <h4>Week 2</h4>
+            <p>Topic:JAVA</p>
+            <ul>
+                <li></li>
+                <li>how to open java pc or computer </li>
+                <li>Odd or even in java</li>
+            </ul>
+            <!-- Add more weeks as needed -->
+        </section>
+    </main>
+   
+   
+    <footer>
+        <p>&copy; 2024 College Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

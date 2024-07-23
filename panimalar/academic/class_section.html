@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Class/Section/Subjects/Timetable</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        body {
+            background-color: #e9f5f9;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            margin-top: 10px; /* Adds margin to separate nav from header */
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s, transform 0.3s;
+            border-radius: 5px; /* Rounded corners for nav links */
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            transform: scale(1.1);
+        }
+
+        main {
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin: 0 auto; /* Centers container horizontally */
+            animation: zoomIn 0.5s ease-out;
+            border: 2px solid #0077b6; /* Added border to the container */
+        }
+
+        section {
+            margin-bottom: 20px; /* Add margin to separate sections */
+            border: 2px solid #0ca8fc; /* Added border to each section */
+            padding: 30px;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        section h2 {
+            color: #0077b6;
+            margin-top: 0;
+            animation: fadeInRight 0.5s ease-out;
+            font-size: 22px; /* Increased font size for section headers */
+        }
+
+        p, ul, a {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        ul li {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        ul li a {
+            color: #0077b6;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        ul li a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        a {
+            color: #0077b6;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            color: #005f8e;
+            transform: scale(1.1);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        table, th, td {
+            border: 1px solid #ccc;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background: linear-gradient(to bottom, #0077b6, #005f8e); /* Gradient header */
+            color: white;
+            animation: fadeInRight 0.5s ease-out;
+        }
+
+        td {
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9; /* Zebra striping */
+        }
+
+        tr:hover td {
+            background-color: #e9f5f9;
+            transform: scale(1.02);
+        }
+
+        footer {
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 5px 0; /* Smaller footer padding */
+            font-size: 12px; /* Smaller font size */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        /* Form styling */
+        input[type="text"], input[type="email"], input[type="password"], textarea, select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box; /* Ensure padding doesn't affect width */
+            margin-bottom: 10px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="email"]:focus, input[type="password"]:focus, textarea:focus, select:focus {
+            border-color: #0077b6;
+            outline: none;
+        }
+
+        button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #005f8e;
+            transform: scale(1.05);
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            .container {
+                padding: 10px;
+            }
+
+            form {
+                width: 100%;
+            }
+
+            section {
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 10px; /* Further reduce font size on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Class/Section/Subjects/Timetable</h1>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/panimalar-main%20(1)/panimalar-main/index.html">Home</a></li>
+                <li><a href="#">HOD Details</a></li>
+                <li><a href="#">Faculty Details</a></li>
+                <li><a href="students_parents_details.html">Students/Parents Details</a></li>
+                <li><a href="lesson_plan.html">Lesson Plan</a></li>
+                <li><a href="mentor_user.html">Mentor User</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Class Details</h2>
+            <h3>Class: AIML</h3>
+            <p>Section: C</p>
+            <h3>Subjects:</h3>
+            <ul>
+                <li>MFAI</li>
+                <li>AIES</li>
+                <li>OOPS</li>
+                <li>DPCA</li>
+                <li>DBMS</li>
+                <li>M-II</li>
+            </ul>
+            <h3>Class Timetable:</h3>
+            <table border="1">
+                <tr>
+                    <th>Day</th>
+                    <th>8:00-8:50</th>
+                    <th>8:50-9:40</th>
+                    <th>9:40-10:30</th>
+                    <th>10:30-10:45</th>
+                    <th>10:45-11:30</th>
+                    <th>11:30-12:05</th>
+                    <td>12:05-12:40</td>
+                    <th>12:40-1:35</th>
+                    <th>1:35-2:25</th>
+                    <th>2:25-3:15</th>
+        
+
+                </tr>
+                <tr>
+                    <td>Monday</td>
+                    <td>AIES</td>
+                    <td>OOPS</td>
+                    <td>MFAI</td>
+                    <td>BREAK</td>
+                    <td>DBMS</td>
+                    <td>DPCA</td>
+                    <td>LUNCH</td>
+                    <td>DMBS LAB</td>
+                    <td>DMBS LAB</td>
+                    <td>DMBS LAB</td>
+                    
+                </tr>
+                <tr>
+                    <td>Tuesday</td>
+                    <td>AIES LAB</td>
+                    <td>AIES LAB</td>
+                    <td>AIES LAB</td>
+                    <td>BREAK</td>
+                    <td>MFAI</td>
+                    <td>AIES</td>
+                    <td>LUNCH</td>
+                    <td>OOPS</td>
+                    <td>AIES</td>
+                    <td>LIB</td>
+
+                </tr>
+                <tr>
+                    <td>Wednesday</td>
+                    <td>DBMS</td>
+                    <td>AIES</td>
+                    <td>MFAI</td>
+                    <td>BREAK</td>
+                    <td>M-II</td>
+                    <td>M-II</td>
+                    <td>LUNCH</td>
+                    <td>DPCA</td>
+                    <td>MFAI</td>
+                    <td>DPCA</td>
+                </tr>
+                <tr>
+                    <td>Thursday</td>
+                    <td>OOPS</td>
+                    <td>DBMS</td>
+                    <td>AIES</td>
+                    <td>BREAK</td>
+                    <td>TSP</td>   
+                    <td>TSP</td>                   
+                    <td>LUNCH</td>
+                    <td>DPCA</td>
+                    <td>MFAI</td>
+                    <td>DBMS</td>
+                </tr>
+                <tr>
+                    <td>Friday</td>
+                    <td>MFAI</td>
+                    <td>DPCA</td>
+                    <td>DBMS</td>
+                    <td>BREAK</td>
+                    <td>OOPS</td>
+                    <td>OOPS</td>
+                    <td>LUNCH</td>
+                    <td>OOPS</td>
+                    <td>OOPS</td>
+                    <td>OOPS</td>
+                </tr>
+                
+               
+            </table>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 College Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

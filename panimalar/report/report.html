@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customized Activity Report</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 1000px;
+            padding: 2em;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #0073e6;
+            margin-bottom: 0.5em;
+            font-size: 2.5em;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .activity-report {
+            background-color: #e0f7fa;
+            border-left: 5px solid #0073e6;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .activity-title {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #0073e6;
+            margin-bottom: 0.5em;
+        }
+
+        .activity-details {
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+
+        .participant-info, .project-info {
+            margin-top: 1em;
+            padding: 1em;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .participant-info h2, .project-info h2 {
+            font-size: 1.3em;
+            color: #0073e6;
+            margin-bottom: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Customized Activity Report</h1>
+        <section id="activity-reports">
+            <!-- Activity reports will be added here dynamically -->
+        </section>
+    </div>
+
+    <script>
+        const activities = [
+            {
+                title: 'Research Project A',
+                description: 'Completed initial research phase and analyzed data.',
+                date: '2024-07-01',
+                status: 'Completed',
+                participants: [
+                    { name: 'Alice Johnson', role: 'Lead Researcher' },
+                    { name: 'Bob Smith', role: 'Data Analyst' }
+                ],
+                projects: [
+                    { name: 'Phase 1 Analysis', status: 'Completed' },
+                    { name: 'Phase 2 Report', status: 'In Progress' }
+                ]
+            },
+            {
+                title: 'Survey Analysis B',
+                description: 'Gathered survey data and performed statistical analysis.',
+                date: '2024-07-10',
+                status: 'In Progress',
+                participants: [
+                    { name: 'Carol White', role: 'Survey Coordinator' },
+                    { name: 'David Brown', role: 'Statistician' }
+                ],
+                projects: [
+                    { name: 'Survey Data Collection', status: 'Completed' },
+                    { name: 'Statistical Analysis', status: 'In Progress' }
+                ]
+            },
+            {
+                title: 'Faculty Workshop C',
+                description: 'Organized and conducted a workshop for faculty training.',
+                date: '2024-07-15',
+                status: 'Upcoming',
+                participants: [
+                    { name: 'Emily Green', role: 'Workshop Organizer' },
+                    { name: 'Frank Black', role: 'Guest Speaker' }
+                ],
+                projects: [
+                    { name: 'Workshop Planning', status: 'Completed' },
+                    { name: 'Event Execution', status: 'Upcoming' }
+                ]
+            }
+        ];
+
+        const activitySection = document.getElementById('activity-reports');
+
+        activities.forEach(activity => {
+            const activityDiv = document.createElement('div');
+            activityDiv.classList.add('activity-report');
+
+            const activityTitle = document.createElement('div');
+            activityTitle.classList.add('activity-title');
+            activityTitle.textContent = activity.title;
+
+            const activityDetails = document.createElement('div');
+            activityDetails.classList.add('activity-details');
+            activityDetails.innerHTML = `
+                <p><strong>Date:</strong> ${activity.date}</p>
+                <p><strong>Description:</strong> ${activity.description}</p>
+                <p><strong>Status:</strong> ${activity.status}</p>
+            `;
+
+            const participantSection = document.createElement('div');
+            participantSection.classList.add('participant-info');
+            participantSection.innerHTML = '<h2>Participants</h2>';
+            activity.participants.forEach(participant => {
+                participantSection.innerHTML += `
+                    <p><strong>Name:</strong> ${participant.name}</p>
+                    <p><strong>Role:</strong> ${participant.role}</p>
+                `;
+            });
+
+            const projectSection = document.createElement('div');
+            projectSection.classList.add('project-info');
+            projectSection.innerHTML = '<h2>Projects</h2>';
+            activity.projects.forEach(project => {
+                projectSection.innerHTML += `
+                    <p><strong>Project Name:</strong> ${project.name}</p>
+                    <p><strong>Status:</strong> ${project.status}</p>
+                `;
+            });
+
+            activityDiv.appendChild(activityTitle);
+            activityDiv.appendChild(activityDetails);
+            activityDiv.appendChild(participantSection);
+            activityDiv.appendChild(projectSection);
+            activitySection.appendChild(activityDiv);
+        });
+    </script>
+</body>
+</html>

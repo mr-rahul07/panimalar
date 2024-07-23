@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assignment Analysis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: #0073e6;
+            margin-bottom: 1em;
+            font-size: 2.5em;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .analysis-form, .analysis-results {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin-bottom: 2em;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #0073e6;
+        }
+
+        .form-group input[type="text"], .form-group input[type="date"] {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .form-group input[type="text"]:focus, .form-group input[type="date"]:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #005bb5;
+        }
+
+        .results-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1em;
+        }
+
+        .results-table th, .results-table td {
+            border: 1px solid #ddd;
+            padding: 0.75em;
+            text-align: left;
+        }
+
+        .results-table th {
+            background-color: #0073e6;
+            color: #fff;
+        }
+
+        .results-table tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Assignment Analysis</h1>
+
+        <!-- Analysis Form -->
+        <div class="analysis-form">
+            <h2>View Assignment Submissions</h2>
+            <form id="analysis-form">
+                <div class="form-group">
+                    <label for="assignment-id">Assignment ID:</label>
+                    <input type="text" id="assignment-id" name="assignment-id" placeholder="Enter assignment ID" required>
+                </div>
+                <div class="form-group">
+                    <label for="date-range">Date Range:</label>
+                    <input type="date" id="start-date" name="start-date" placeholder="Start Date" required>
+                    <input type="date" id="end-date" name="end-date" placeholder="End Date" required>
+                </div>
+                <button type="submit" class="submit-btn">Analyze Submissions</button>
+            </form>
+        </div>
+
+        <!-- Analysis Results -->
+        <div class="analysis-results">
+            <h2>Submission Details</h2>
+            <table class="results-table" id="results-table">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Roll Number</th>
+                        <th>Department</th>
+                        <th>Assignment File</th>
+                        <th>Submission Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Results will be dynamically inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('analysis-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            // Sample data to simulate analysis
+            const sampleData = [
+                { name: 'John Doe', rollNo: '12345', department: 'Computer Science', file: 'assignment1.pdf', date: '2024-07-15' },
+                { name: 'Jane Smith', rollNo: '67890', department: 'Mathematics', file: 'assignment2.docx', date: '2024-07-16' }
+            ];
+
+            // Clear previous results
+            const tbody = document.getElementById('results-table').querySelector('tbody');
+            tbody.innerHTML = '';
+
+            // Populate table with sample data
+            sampleData.forEach(submission => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${submission.name}</td>
+                    <td>${submission.rollNo}</td>
+                    <td>${submission.department}</td>
+                    <td><a href="#" download>${submission.file}</a></td>
+                    <td>${submission.date}</td>
+                `;
+                tbody.appendChild(row);
+            });
+        });
+    </script>
+</body>
+</html>

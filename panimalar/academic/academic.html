@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e9f5f9;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav {
+            background-color: #333;
+            display: flex;
+            justify-content: center;
+            margin-top: 60px; /* Space for fixed header */
+        }
+
+        nav a {
+            color: white;
+            text-align: center;
+            padding: 14px 20px;
+            text-decoration: none;
+            display: block;
+        }
+
+        nav a:hover {
+            background-color: #575757;
+        }
+
+        .container {
+            padding: 20px;
+            margin-top: 20px; /* Space for fixed header and navigation */
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section {
+            background-color: white;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .section h2 {
+            color: #0077b6;
+            margin-top: 0;
+            font-size: 22px;
+            border-bottom: 2px solid #0077b6;
+            padding-bottom: 5px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #0077b6;
+            color: white;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form label {
+            display: block;
+            font-weight: bold;
+            color: #0077b6;
+            margin-bottom: 5px;
+            text-align: left;
+            width: 100%;
+        }
+
+        form input,
+        form select,
+        form textarea,
+        form button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #0077b6;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            box-sizing: border-box;
+        }
+
+        form button {
+            background-color: #0077b6;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        form button:hover {
+            background-color: #005f8e;
+        }
+
+        footer {
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 5px 0; /* Smaller footer padding */
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            left: 0;
+            font-size: 12px; /* Smaller font size */
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav a {
+                padding: 10px;
+            }
+
+            .container {
+                padding: 10px;
+                margin-top: 70px; /* Adjust for fixed header and navigation */
+            }
+
+            .section {
+                padding: 10px;
+            }
+
+            footer {
+                font-size: 10px; /* Further reduce font size on smaller screens */
+                padding: 3px 0; /* Further reduce footer padding */
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Academic Information</h1>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="academic.html">Academic Overview</a>
+        <a href="attendance.html">Attendance</a>
+        <a href="assignments.html">Assignments</a>
+        <a href="exams.html">Exams</a>
+    </nav>
+
+    <div class="container">
+        <section class="section" id="academic-data">
+            <h2>Academic Data</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class/Section</th>
+                        <th>Subject</th>
+                        <th>Time Table</th>
+                        <th>HOD Details</th>
+                        <th>Faculty Details</th>
+                        <th>Students/Parents Details</th>
+                        <th>Lesson Plan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AIML</td>
+                        <td>Python</td>
+                        <td>Mon-Fri, 9:00 AM - 10:00 AM</td>
+                        <td>Anni Princy</td>
+                        <td>Anni</td>
+                        <td>Rahul</td>
+                        <td>Week 1: Addition and Subtraction</td>
+                    </tr>
+                    <!-- Add more rows as needed -->
+                </tbody>
+            </table>
+        </section>
+
+        <section class="section" id="academic-form">
+            <h2>Add New Academic Data</h2>
+            <form id="academic-form">
+                <label for="class-section">Class/Section:</label>
+                <input type="text" id="class-section" name="class-section" required>
+
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+
+                <label for="time-table">Time Table:</label>
+                <input type="text" id="time-table" name="time-table" required>
+
+                <label for="hod-details">HOD Details:</label>
+                <input type="text" id="hod-details" name="hod-details" required>
+
+                <label for="faculty-details">Faculty Details:</label>
+                <input type="text" id="faculty-details" name="faculty-details" required>
+
+                <label for="students-parents-details">Students/Parents Details:</label>
+                <input type="text" id="students-parents-details" name="students-parents-details" required>
+
+                <label for="lesson-plan">Lesson Plan:</label>
+                <textarea id="lesson-plan" name="lesson-plan" rows="4" required></textarea>
+
+                <button type="submit">Submit</button>
+            </form>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Panimalar. All rights reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById('academic-form').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let formData = new FormData(this);
+            let jsonData = {};
+            formData.forEach((value, key) => jsonData[key] = value);
+
+            fetch('submit_academic_data.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(jsonData)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Academic data submitted successfully!');
+                } else {
+                    alert('Submission failed.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+
+</html>

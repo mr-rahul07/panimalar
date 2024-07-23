@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Students/Parents Details</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            animation: fadeIn 1s ease-in;
+        }
+
+        header {
+            background-color: #0077b6;
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            animation: slideInDown 0.5s ease-out;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+            margin-top: 10px;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        nav ul li {
+            margin: 0 10px;
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #575757;
+            transform: scale(1.1);
+        }
+
+        main {
+            padding: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin: 20px auto;
+            max-width: 800px;
+            animation: zoomIn 0.5s ease-out;
+            border: 1px solid #0077b6;
+        }
+
+        section h2, h3 {
+            color: #0077b6;
+            margin-top: 0;
+            animation: fadeInRight 0.5s ease-out;
+        }
+
+        p, ul, a {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        ul li {
+            animation: fadeInUp 0.5s ease-out;
+        }
+
+        ul li a {
+            color: #0077b6;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        ul li a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+
+        a {
+            color: #0077b6;
+            text-decoration: none;
+            transition: color 0.3s, transform 0.3s;
+        }
+
+        a:hover {
+            color: #005f8e;
+            transform: scale(1.1);
+        }
+
+        footer {
+            background-color: #0077b6;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 12px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInDown {
+            from {
+                transform: translateY(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                transform: translateY(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeInRight {
+            from {
+                transform: translateX(-20px);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                transform: scale(0.5);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav ul li {
+                margin: 5px 0;
+            }
+
+            section {
+                padding: 10px;
+                margin: 10px;
+            }
+
+            footer {
+                font-size: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Students/Parents Details</h1>
+        <nav>
+            <ul>
+                <li><a href="http://127.0.0.1:5500/panimalar-main%20(1)/panimalar-main/index.html">Home</a></li>
+                <li><a href="class_section.html">Class/Section/Subjects/Timetable</a></li>
+                <li><a href="#">HOD Details</a></li>
+                <li><a href="#">Faculty Details</a></li>
+                <li><a href="lesson_plan.html">Lesson Plan</a></li>
+                <li><a href="mentor_user.html">Mentor User</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <h2>Student/Parent Basic Information</h2>
+            <h3>Student Information</h3>
+            <p>Name:R RAHUL</p>
+            <p>Class:2nd Year</p>
+            <p>Email: rahul0406r@gmail.com</p>
+            <h3>Parent Information</h3>
+            <p>Name: S Ramesh</p>
+            <p>Email: rameshsonaimuthu7145@gmail.com</p>
+        
+            <h2>Disciplinary Action</h2>
+            <p>No disciplinary actions recorded.</p>
+            <h2>Certification Uploaded</h2>
+            <ul>
+                <li><a href="./rahul certificate.jpg">Certificate of Achievement</a></li>
+            </ul>
+            <h2>Internal/External & Approval</h2>
+            <p>All internal and external approvals are up-to-date.</p>
+            <h2>Course Feedback with Rating</h2>
+            <p>Overall Course Rating: 4.5/5</p>
+            <p>Feedback: "Great course, well-structured and informative."</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 College Name. All rights reserved.</p>
+    </footer>
+</body>
+</html>

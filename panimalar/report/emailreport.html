@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Activity Report</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            padding: 2em;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #0073e6;
+            margin-bottom: 0.5em;
+            font-size: 2.5em;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Email Activity Report</h1>
+        <form id="email-form">
+            <div class="form-group">
+                <label for="from-email">From:</label>
+                <input type="email" id="from-email" name="from-email" required>
+            </div>
+            <div class="form-group">
+                <label for="to-email">To:</label>
+                <input type="email" id="to-email" name="to-email" required>
+            </div>
+            <div class="form-group">
+                <label for="subject">Subject:</label>
+                <input type="text" id="subject" name="subject" required>
+            </div>
+            <div class="form-group">
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Report</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById('email-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // Extract form data
+            const fromEmail = document.getElementById('from-email').value;
+            const toEmail = document.getElementById('to-email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+
+            // Here you would typically send the data to a server or email service
+            console.log(`From: ${fromEmail}`);
+            console.log(`To: ${toEmail}`);
+            console.log(`Subject: ${subject}`);
+            console.log(`Message: ${message}`);
+
+            // For demonstration purposes, we will just show an alert
+            alert('Report sent successfully!');
+            
+            // Reset form
+            document.getElementById('email-form').reset();
+        });
+    </script>
+</body>
+</html>

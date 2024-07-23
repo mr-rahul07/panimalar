@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Gallery</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+        }
+
+        h1 {
+            color: #0073e6;
+            margin-bottom: 1em;
+            font-size: 2.5em;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .upload-form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            margin-bottom: 2em;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-group {
+            margin-bottom: 1.5em;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+            color: #0073e6;
+        }
+
+        .form-group input[type="file"] {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1em;
+            box-sizing: border-box;
+            background-color: #fff;
+        }
+
+        .form-group input[type="file"]:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        .submit-btn {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            cursor: pointer;
+            font-size: 1.2em;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #005bb5;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1em;
+            justify-content: center;
+        }
+
+        .video-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+        }
+
+        .video-item video {
+            width: 100%;
+            height: auto;
+        }
+
+        .video-item h3 {
+            padding: 0.75em;
+            margin: 0;
+            background-color: #0073e6;
+            color: #fff;
+            text-align: center;
+            font-size: 1.2em;
+            animation: fadeInTitle 1s ease-in-out;
+        }
+
+        @keyframes fadeInTitle {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Video Gallery</h1>
+        <div class="upload-form">
+            <h2>Upload a Video</h2>
+            <form id="upload-form">
+                <div class="form-group">
+                    <label for="video-file">Choose Video File:</label>
+                    <input type="file" id="video-file" name="video-file" accept="video/*" required>
+                </div>
+                <button type="submit" class="submit-btn">Upload Video</button>
+            </form>
+        </div>
+        <div class="gallery" id="gallery">
+            <!-- Video items will be dynamically added here -->
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('upload-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            const videoFile = document.getElementById('video-file').files[0];
+            if (videoFile) {
+                const videoURL = URL.createObjectURL(videoFile);
+                const videoTitle = videoFile.name;
+
+                const videoItem = document.createElement('div');
+                videoItem.className = 'video-item';
+
+                videoItem.innerHTML = `
+                    <video controls>
+                        <source src="${videoURL}" type="${videoFile.type}">
+                        Your browser does not support the video tag.
+                    </video>
+                    <h3>${videoTitle}</h3>
+                `;
+
+                document.getElementById('gallery').appendChild(videoItem);
+
+                document.getElementById('upload-form').reset();
+            } else {
+                alert('Please select a video file to upload.');
+            }
+        });
+    </script>
+</body>
+</html>

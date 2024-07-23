@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Analysis</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f0f4f8;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 2em;
+        }
+
+        .container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 800px;
+            padding: 2em;
+            text-align: center;
+            animation: fadeIn 1.5s ease-in-out;
+            margin-bottom: 2em;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            color: #0073e6;
+            margin-bottom: 0.5em;
+            font-size: 2.5em;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(-100%); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        section {
+            margin-bottom: 2em;
+            text-align: left;
+        }
+
+        section h2 {
+            color: #0073e6;
+            border-bottom: 2px solid #0073e6;
+            padding-bottom: 0.5em;
+            font-size: 1.8em;
+            margin-bottom: 1em;
+        }
+
+        .faculty {
+            background-color: #e0f7fa;
+            border-left: 5px solid #0073e6;
+            padding: 1em;
+            margin-bottom: 1em;
+            border-radius: 5px;
+            position: relative;
+            animation: fadeInUp 1s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .faculty-name {
+            font-size: 1.2em;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .progress-container {
+            background-color: #ccc;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .progress-bar {
+            background-color: #0073e6;
+            height: 1em;
+            border-radius: 5px 0 0 5px;
+            transition: width 1s ease-in-out;
+        }
+
+        .faculty:hover .progress-bar {
+            background-color: #005bb5;
+        }
+
+        form {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 2em;
+            width: 90%;
+            max-width: 800px;
+            margin-bottom: 2em;
+        }
+
+        .form-group {
+            margin-bottom: 1em;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 0.5em;
+        }
+
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 0.75em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+        }
+
+        .form-group input:focus, .form-group textarea:focus {
+            border-color: #0073e6;
+            outline: none;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            height: 100px;
+        }
+
+        .submit-btn {
+            background-color: #0073e6;
+            color: white;
+            border: none;
+            padding: 0.75em 1.5em;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 4px;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .submit-btn:hover {
+            background-color: #005bb5;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Faculty Analysis</h1>
+        <section id="faculty-overview">
+            <h2>Faculty Overview</h2>
+            <p>Here you can find an overview of our faculty performance metrics.</p>
+        </section>
+        <section id="faculty-analysis">
+            <!-- Faculty analysis details will be added here dynamically -->
+        </section>
+    </div>
+
+    <form id="faculty-form">
+        <h2>Submit Faculty Performance</h2>
+        <div class="form-group">
+            <label for="name">Faculty Name:</label>
+            <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-group">
+            <label for="description">Performance Description:</label>
+            <textarea id="description" name="description" required></textarea>
+        </div>
+        <div class="form-group">
+            <label for="performance">Performance Percentage:</label>
+            <input type="number" id="performance" name="performance" min="0" max="100" required>
+        </div>
+        <button type="submit" class="submit-btn">Submit Performance</button>
+    </form>
+
+    <script>
+        document.getElementById('faculty-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const description = document.getElementById('description').value;
+            const performance = document.getElementById('performance').value;
+
+            const facultySection = document.getElementById('faculty-analysis');
+
+            const facultyDiv = document.createElement('div');
+            facultyDiv.classList.add('faculty');
+
+            const facultyName = document.createElement('div');
+            facultyName.classList.add('faculty-name');
+            facultyName.textContent = name;
+
+            const facultyDescription = document.createElement('p');
+            facultyDescription.textContent = description;
+
+            const progressContainer = document.createElement('div');
+            progressContainer.classList.add('progress-container');
+
+            const progressBar = document.createElement('div');
+            progressBar.classList.add('progress-bar');
+            progressBar.style.width = `${performance}%`;
+
+            progressContainer.appendChild(progressBar);
+            facultyDiv.appendChild(facultyName);
+            facultyDiv.appendChild(facultyDescription);
+            facultyDiv.appendChild(progressContainer);
+            facultySection.appendChild(facultyDiv);
+
+            document.getElementById('faculty-form').reset();
+        });
+    </script>
+</body>
+</html>
